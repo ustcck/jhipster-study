@@ -1,0 +1,19 @@
+{
+  "generator-jhipster": {
+    "deploymentType": "kubernetes",
+    "gatewayType": "zuul",
+    "monitoring": "no",
+    "directoryPath": "../",
+    "appsFolders": ["store", "invoice", "notification"],
+    "clusteredDbApps": [],
+    "consoleOptions": [],
+    "serviceDiscoveryType": false,
+    "dockerRepositoryName": "ustcck",
+    "dockerPushCommand": "docker push",
+    "kubernetesNamespace": "default",
+    "kubernetesServiceType": "Ingress",
+    "ingressDomain": "",
+    "istio": false,
+    "jwtSecretKey": "OTNiMzg1ZjE0ZGEyZThlMGQyZDljYjQ5OTUwZGJjZTQ1MjM5MTUxNGM2MjRhZjhiMzJkM2FhMGRjODM4MmM4MDRlMGMyMDRlNWIyYTFmM2FmMjBkZmM3MTFhZWFiMjM0OGZiMg=="
+  }
+}

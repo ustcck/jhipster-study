@@ -1,0 +1,64 @@
+/* Store gateway application */
+application {
+  config {
+    baseName store
+    applicationType gateway
+    packageName com.ustcck.store
+    serviceDiscoveryType eureka
+    authenticationType jwt
+    devDatabaseType mysql
+    prodDatabaseType mysql
+    useSass true
+    nativeLanguage zh-cn
+    languages [en, zh-cn, ta]
+    websocket spring-websocket
+    testFrameworks [protractor]
+  }
+}
+
+/* Invoice microservice application */
+application {
+  config {
+    baseName invoice
+    applicationType microservice
+    packageName com.ustcck.invoice
+    serviceDiscoveryType eureka
+    authenticationType jwt
+    devDatabaseType mysql
+    prodDatabaseType mysql
+    serverPort 8081
+    nativeLanguage zh-cn
+    languages [en, zh-cn, ta]
+  }
+}
+
+/* Notification microservice application */
+application {
+  config {
+    baseName notification
+    applicationType microservice
+    packageName com.ustcck.notification
+    serviceDiscoveryType eureka
+    authenticationType jwt
+    databaseType mongodb
+    prodDatabaseType mongodb,
+    devDatabaseType mongodb
+    cacheProvider no
+    enableHibernateCache false
+    serverPort 8082
+    nativeLanguage zh-cn
+    languages [en, zh-cn, ta]
+  }
+}
+
+/**
+ * Deployments
+ */
+
+deployment {
+  deploymentType kubernetes
+  appsFolders [store, invoice, notification]
+  dockerRepositoryName "ustcck"
+  serviceDiscoveryType no
+  kubernetesServiceType Ingress
+}
